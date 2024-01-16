@@ -11,7 +11,7 @@ public class Main {
         Ort Ort[] = new Ort[41];
         Spieler[0] = new Spieler(100, 100, 2, 5);
 
-        Ort[0] = new Ort("Bielefeld", 5, 2, true, 1000);
+        Ort[0] = new Ort("Bielefeld", 1000, 1000, true, 1000);
         Ort[1] = new Ort("Schmalkalden", 2, 7, true, 20);
         Ort[2] = new Ort("Buxtehude", 20, 5, true, 1);
         Ort[3] = new Ort("Meiningen", 18, 5, true, 1);
@@ -32,11 +32,10 @@ public class Main {
 
         while (mainmenu == true & Spiel.getTageszaehler() <= 100) {
             System.out.println("Spielmenü");
-            System.out.println("""
-                    1. Reisen   2. Kaufen   3. Verkaufen
-                    4. Warten   5. Essen    6. Arbeiten
-                    7. Inventar 8. Spiel beenden
-                    """);
+            System.out.println(
+                    "1. Reisen   2. Kaufen   3. Verkaufen" + "\n"
+                    + "4. Warten   5. Essen    6. Arbeiten" + "\n"
+                    + "7. Inventar 8. Spiel beenden");
             mainmenu = false;
             System.out.print("Aktion: ");
             mainAction = input.nextLine();
@@ -63,11 +62,9 @@ public class Main {
         }
         else{
             System.out.println
-                ("""
-                -------------------------------
-                Aktion heute nicht mehr möglich  
-                -------------------------------  
-                    """);
+                ("-------------------------------" + "\n"
+                +"Aktion heute nicht mehr möglich" + "\n"
+                +"-------------------------------");
         }
 
         System.out.print("Reisen nach: ");
