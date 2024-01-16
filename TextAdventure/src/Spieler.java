@@ -3,7 +3,7 @@ public class Spieler {
     private int lebenspunkte = 0;
     private int S_x;
     private int S_y; 
-
+    private String Standort = "Start";
     
     
     public Spieler(int gold, int lebenspunkte, int s_x, int s_y) {
@@ -49,6 +49,21 @@ public class Spieler {
     String zeigeReisen(String Name, int Spieler_x, int Spieler_y, int ZielOrt_x, int ZielOrt_y){
         double d = Math.sqrt( Math.pow((ZielOrt_x - Spieler_x),2) + Math.pow((ZielOrt_y - Spieler_y),2));
         return Name + " ist " + (int)d + " km entfernt";
+    }
+
+    public void changePlayerCoordinates(int x, int y){
+        S_x = x;
+        S_y = y;
+    }
+
+
+    public String getStandort() {
+        return Standort;
+    }
+
+
+    public void setStandort(String standort) {
+        Standort = standort;
     }
 
 }
