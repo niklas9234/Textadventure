@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Main {
     public static void main(String[] args) throws Exception {
 
@@ -10,11 +8,12 @@ public class Main {
         Taetigkeit Taetigkeit;
         Ort Ort[] = new Ort[41];
         Ware Ware[] = new Ware[41];
-        Spieler[0] = new Spieler(100, 100, 2, 5);
+        Spieler[0] = new Spieler(100, 100, 0, 0);
 
         //------------------------------------ Waren ------------------------------------------
-        
-
+        Ware[0] = new Ware("Apfel", 1, 0.3, true, 0.3);
+        Ware[1] = new Ware("Birne", 1, 0.2, true, 0.2);
+        Ware[2] = new Ware("Schaufel", 5, 1, false, 1);
         //------------------------------------ Orte ------------------------------------------
 
         Ort[0] = new Ort("Bielefeld", 1000, 1000, true, 1000);
@@ -80,12 +79,22 @@ public class Main {
                     mainmenu = true;
                     break;
             }   
+        
+        // Inventar - Menu
+
+        if (inventar == true){
+            System.out.println("Inventar");
+            
+
         }
 
+
+
+        // Ende Menu
+        //-------------------------------------------------------------------------------
         // ------------------------------ Reisen ----------------------------------------
         int reisenAction;
-        if (reisen == true) {
-            
+        if (reisen == true) { 
 
             System.out.println("Mögliche Reiseziele sind: ");
             ArrayList<String> Reiseziele = new ArrayList<>();
@@ -95,26 +104,35 @@ public class Main {
                         Ort[i].getX(), Ort[i].getY()));
                 System.out.println((1 + i) + ". " + Reiseziele.get(i));
             }
-        }
-        else{
+            
+        /* 
             System.out.println
                 ("-------------------------------" + "\n"
                 +"Aktion heute nicht mehr möglich" + "\n"
                 +"-------------------------------");
+        */
+            if (AWF_Flag == true){
+                System.out.print("Reisen nach: ");
+                reisenAction = input.nextInt();
+                Spieler[0].changePlayerCoordinates(Ort[reisenAction-1].getX(), Ort[reisenAction-1].getY());
+                Spieler[0].setStandort(Ort[reisenAction-1].getName());
+            }
+        reisen = false;
+        mainmenu = true;    
         }
 
-        System.out.print("Reisen nach: ");
-        reisenAction = input.nextInt();
-        
-        
-
         // Ende Reisen
+
+        if (standort == true){
+            System.out.println("Standort des Spielers ist: " +Spieler[0].getStandort());
+        }
         //-----------------------------------------------------------------------------
         //------------------------------ Kaufen ---------------------------------------
         
 
 
-
+    }
     }
 
 }
+
