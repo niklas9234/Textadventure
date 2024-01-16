@@ -4,6 +4,7 @@ public class Ware {
     private final double gewicht;
     private final boolean essbar;
     private double interesse;
+    private String [][]  inventar= new String [41][41];
 
     public Ware(String name, int preis, double gewicht, boolean essbar, double interesse) {
         this.name = name;
@@ -35,6 +36,14 @@ public class Ware {
 
     public void setInteresse(double interesse) {
         this.interesse = interesse;
+    }
+
+    public String[][] getInventar() {
+        return inventar;
+    }
+
+    public void setInventar(String[][] inventar) {
+        this.inventar = inventar;
     }
     
 }
